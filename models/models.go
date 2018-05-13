@@ -39,3 +39,13 @@ type Fare struct {
 	Adulttotalfare int `json:adulttotalfare`
 	//Totalcommission string `json:totalcommission`
 }
+
+type Config struct {
+	App_id          string `json:app_id`
+	App_key         string `json:app_key`
+	Format          string `json:format`
+	Source          string `json:source`
+	Destination     string `json:destination`
+	Dateofdeparture string `json:dateofdeparture`
+	Dateofarrival   string `json:dateofarrival`
+}

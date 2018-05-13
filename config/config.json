@@ -1,0 +1,9 @@
+{
+    "app_id":"cc7a88d8",
+    "app_key":"a545d59e587dfc2fe1ba8dddf39b7b24",
+    "format":"json",
+    "source":"BLR",
+    "destination":"IXR",
+    "dateofdeparture":"20180614",
+    "dateofarrival":"20180624"
+}
