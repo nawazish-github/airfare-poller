@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/nawazish-github/airfare-poller/models"
+
 	"github.com/nawazish-github/airfare-poller/config"
 	"github.com/nawazish-github/airfare-poller/http"
 	"github.com/nawazish-github/airfare-poller/unmarshal"
@@ -16,12 +18,9 @@ func main() {
 	if configError != nil {
 		fmt.Println(configError)
 	}
-	var airfareHttpClient http.AirfareHttpClient
-	url := "http://developer.goibibo.com/api/search/?app_id=" + config.App_id + "&app_key=" + config.App_key +
-		"&format=" + config.Format + "&source=" + config.Source + "&destination=" + config.Destination +
-		"&dateofdeparture=" + config.Dateofdeparture + "&dateofarrival=" + config.Dateofarrival +
-		"&seatingclass=E&adults=1&children=0&infants=0&counter=100"
 
+	url := getURL(config)
+	var airfareHttpClient http.AirfareHttpClient
 	data, urlError := airfareHttpClient.Get(url)
 
 	if urlError != nil {
@@ -37,4 +36,11 @@ func main() {
 	}
 
 	fmt.Println(airfareResp)
+}
+
+func getURL(config *models.Config) string {
+	return "http://developer.goibibo.com/api/search/?app_id=" + config.App_id + "&app_key=" + config.App_key +
+		"&format=" + config.Format + "&source=" + config.Source + "&destination=" + config.Destination +
+		"&dateofdeparture=" + config.Dateofdeparture + "&dateofarrival=" + config.Dateofarrival +
+		"&seatingclass=E&adults=1&children=0&infants=0&counter=100"
 }
