@@ -1,8 +1,14 @@
 package models
 
+//Response ...
+type Response struct {
+	SrcDest string `json:srcdest`
+}
+
 //AirfareResponse ...the response we get after quering end point
 type AirfareResponse struct {
-	Data Data `json:data`
+	SrcDest string `json:srcdest` //key of the document
+	Data    Data   `json:data`
 }
 
 type Data struct {
